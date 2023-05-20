@@ -1,0 +1,115 @@
+table uvwMerchants
+	lineageTag: e8e333b9-cfd6-4a09-be10-97e4d588eed4
+	ordinal: 1
+
+	partition 'uvwMerchants-23125d97-7921-4219-a55a-57ac07ffaeee' = M
+		mode: DirectQuery
+		expression:=
+			let
+			    Source = Sql.Database(@DatabaseServer, @DatabaseName),
+			    dbo_uvwMerchants = Source{[Schema="dbo",Item="uvwMerchants"]}[Data]
+			in
+			    dbo_uvwMerchants
+
+	column EstateId
+		dataType: String
+		isDataTypeInferred: false
+		isNullable: false
+		lineageTag: e48b6a8a-5f94-44f4-a6d9-3155f848665a
+		sourceColumn: EstateId
+		sourceProviderType: uniqueidentifier
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+	column MerchantId
+		dataType: String
+		isDataTypeInferred: false
+		isNullable: false
+		lineageTag: e02e5c7f-3847-4ada-a04a-05cdffed2ee1
+		sourceColumn: MerchantId
+		sourceProviderType: uniqueidentifier
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+	column MerchantName
+		dataType: String
+		isDataTypeInferred: false
+		isNullable: false
+		lineageTag: f6f532ee-ca8b-482c-bc5a-aa4da422cce1
+		sourceColumn: MerchantName
+		sourceProviderType: nvarchar(max)
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+	column CreatedDateTime
+		dataType: DateTime
+		formatString:= General Date
+		isDataTypeInferred: false
+		isNullable: false
+		lineageTag: a2edba69-8cf8-4c70-8ab4-05f7644a26f3
+		sourceColumn: CreatedDateTime
+		sourceProviderType: datetime2
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+	column AddressLine1
+		dataType: String
+		isDataTypeInferred: false
+		isNullable: false
+		lineageTag: cf785606-4b86-4df4-ac50-7a271a7288ca
+		sourceColumn: AddressLine1
+		sourceProviderType: nvarchar(max)
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+	column Town
+		dataType: String
+		isDataTypeInferred: false
+		lineageTag: d5248fde-c18c-4513-96c5-1ca831dd1ea8
+		sourceColumn: Town
+		sourceProviderType: nvarchar(max)
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+	column PostalCode
+		dataType: String
+		isDataTypeInferred: false
+		lineageTag: 4cdb8296-8d6b-490b-baba-235c64b66c44
+		sourceColumn: PostalCode
+		sourceProviderType: nvarchar(max)
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+	column DeviceIdentifier
+		dataType: String
+		isDataTypeInferred: false
+		isNullable: false
+		lineageTag: 7b065b26-e2fc-44d4-b126-304414bf4bfd
+		sourceColumn: DeviceIdentifier
+		sourceProviderType: nvarchar(max)
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+	column ContactName
+		dataType: String
+		isDataTypeInferred: false
+		isNullable: false
+		lineageTag: 0494ddd1-f778-4b58-8057-4bcd20ecda62
+		sourceColumn: ContactName
+		sourceProviderType: nvarchar(max)
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+	annotation PBI_ResultType = Exception
+
+	annotation PBI_NavigationStepName = Navigation
+

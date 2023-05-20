@@ -1,0 +1,218 @@
+table uvwSettlements
+	lineageTag: c892e73c-2578-4da2-bb84-27ceb8de21b5
+	ordinal: 5
+
+	partition 'uvwSettlements-aac51a90-e8a2-460b-beea-f2135ad7812e' = M
+		mode: DirectQuery
+		expression:=
+			let
+			    Source = Sql.Database(@DatabaseServer, @DatabaseName),
+			    dbo_uvwSettlements = Source{[Schema="dbo",Item="uvwSettlements"]}[Data]
+			in
+			    dbo_uvwSettlements
+
+	column SettlementId
+		dataType: String
+		isDataTypeInferred: false
+		isNullable: false
+		lineageTag: 486c499a-bf76-4dc0-97a4-32a728048f23
+		sourceColumn: SettlementId
+		sourceProviderType: uniqueidentifier
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+	column SettlementDate
+		dataType: DateTime
+		formatString:= General Date
+		isDataTypeInferred: false
+		isNullable: false
+		lineageTag: 5907d5aa-b2d7-4f7c-b192-a1a1a4a5df9d
+		sourceColumn: SettlementDate
+		sourceProviderType: datetime2
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsCompleted
+		dataType: Boolean
+		formatString:= "TRUE";"TRUE";"FALSE"
+		isDataTypeInferred: false
+		isNullable: false
+		lineageTag: e241782a-f3cb-4af6-bf5a-e74c862bf381
+		sourceColumn: IsCompleted
+		sourceProviderType: bit
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayOfWeek
+		dataType: String
+		isDataTypeInferred: false
+		lineageTag: 27fae0b7-09ed-4c63-b37c-37405040aec0
+		sourceColumn: DayOfWeek
+		sourceProviderType: nvarchar(4000)
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeekNumber
+		dataType: Int64
+		formatString:= 0
+		isDataTypeInferred: false
+		lineageTag: d4a2b461-96e9-4781-b6c9-70a0770af842
+		sourceColumn: WeekNumber
+		sourceProviderType: int
+		summarizeBy: Sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		dataType: String
+		isDataTypeInferred: false
+		lineageTag: ce344c65-045d-47e6-b775-2471c128543d
+		sourceColumn: Month
+		sourceProviderType: nvarchar(4000)
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthNumber
+		dataType: Int64
+		formatString:= 0
+		isDataTypeInferred: false
+		lineageTag: eeb63cf3-2736-41b8-8a95-161f434583ea
+		sourceColumn: MonthNumber
+		sourceProviderType: int
+		summarizeBy: Sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearNumber
+		dataType: Int64
+		formatString:= 0
+		isDataTypeInferred: false
+		lineageTag: 3f4774e7-9089-4dd9-8c50-1625b522b776
+		sourceColumn: YearNumber
+		sourceProviderType: int
+		summarizeBy: Sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column CalculatedValue
+		dataType: Double
+		isDataTypeInferred: false
+		isNullable: false
+		lineageTag: e8ad7bc7-dc66-40af-9a6b-7b72daa3bf99
+		sourceColumn: CalculatedValue
+		sourceProviderType: "decimal(18, 2)"
+		summarizeBy: Sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TransactionId
+		dataType: String
+		isDataTypeInferred: false
+		isNullable: false
+		lineageTag: be9df64e-e5ab-484a-acef-628b9a675998
+		sourceColumn: TransactionId
+		sourceProviderType: uniqueidentifier
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+	column EstateId
+		dataType: String
+		isDataTypeInferred: false
+		isNullable: false
+		lineageTag: 71b64786-eddc-439d-8e3c-6b055d0190bb
+		sourceColumn: EstateId
+		sourceProviderType: uniqueidentifier
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+	column MerchantId
+		dataType: String
+		isDataTypeInferred: false
+		isNullable: false
+		lineageTag: b70b8b7d-9d1b-45d4-8cd3-885e344ce95a
+		sourceColumn: MerchantId
+		sourceProviderType: uniqueidentifier
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+	column MerchantName
+		dataType: String
+		isDataTypeInferred: false
+		isNullable: false
+		lineageTag: d5e7acbd-7aa4-406c-a450-f8a181233e6e
+		sourceColumn: MerchantName
+		sourceProviderType: nvarchar(max)
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+	column FeeDescription
+		dataType: String
+		isDataTypeInferred: false
+		lineageTag: b64b3b10-02a6-4bc2-bc9a-e144c78747aa
+		sourceColumn: FeeDescription
+		sourceProviderType: nvarchar(max)
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+	column OperatorIdentifier
+		dataType: String
+		isDataTypeInferred: false
+		lineageTag: fbe00862-9d96-4f5c-aef0-ae6a55483d27
+		sourceColumn: OperatorIdentifier
+		sourceProviderType: nvarchar(max)
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+	column Amount
+		dataType: Double
+		formatString:= "Ksh"#,0.00;-"Ksh"#,0.00;"Ksh"#,0.00
+		isDataTypeInferred: false
+		lineageTag: 340a5d0c-f227-4104-9dfa-989623939908
+		sourceColumn: Amount
+		sourceProviderType: "decimal(18, 0)"
+		summarizeBy: Sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"teo-KE"}
+
+	column IsSettled
+		dataType: Boolean
+		formatString:= "TRUE";"TRUE";"FALSE"
+		isDataTypeInferred: false
+		isNullable: false
+		lineageTag: bc3f84eb-2900-4c3c-9a42-b5fd56c8deda
+		sourceColumn: IsSettled
+		sourceProviderType: bit
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+	column OperatorId
+		dataType: String
+		isDataTypeInferred: false
+		isNullable: false
+		lineageTag: 28c90cad-9c3d-4d43-879e-ee51b45d8612
+		sourceColumn: OperatorId
+		sourceProviderType: uniqueidentifier
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+	annotation PBI_ResultType = Exception
+
+	annotation PBI_NavigationStepName = Navigation
+

@@ -1,0 +1,41 @@
+{
+  "version": "5.40",
+  "themeCollection": {
+    "baseTheme": {
+      "name": "CY22SU11",
+      "version": "5.41",
+      "type": 2
+    },
+    "customTheme": {
+      "name": "TSBI_-_Technological_Strategy_018563355976931595.json",
+      "version": "5.41",
+      "type": 1
+    }
+  },
+  "activeSectionIndex": 0,
+  "defaultDrillFilterOtherVisuals": true,
+  "linguisticSchemaSyncVersion": 2,
+  "settings": {
+    "useNewFilterPaneExperience": true,
+    "allowChangeFilterTypes": true,
+    "useStylableVisualContainerHeader": true,
+    "exportDataMode": 1,
+    "useDefaultAggregateDisplayName": true,
+    "filterPaneHiddenInEditMode": true
+  },
+  "objects": {
+    "section": [
+      {
+        "properties": {
+          "verticalAlignment": {
+            "expr": {
+              "Literal": {
+                "Value": "'Top'"
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}

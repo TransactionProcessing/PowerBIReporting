@@ -1,0 +1,30 @@
+relationship 'b148b315-979b-4d11-b6e6-19a32b3b6db0'
+	fromColumn: uvwTransactions.TransactionDate
+	relyOnReferentialIntegrity
+	toColumn: calendar.Date
+
+relationship '862d7684-615e-4566-a512-af26d5fc4e1c'
+	fromColumn: uvwSettlements.SettlementDate
+	relyOnReferentialIntegrity
+	toColumn: calendar.Date
+
+relationship '4f4183a9-0dec-4c68-9f5b-ba7d1e8fc2a1'
+	fromColumn: uvwTransactions.MerchantId
+	relyOnReferentialIntegrity
+	toColumn: uvwMerchants.MerchantId
+
+relationship '313d5c1c-d59a-49d2-840f-0861eea66f86'
+	fromColumn: uvwSettlements.MerchantId
+	relyOnReferentialIntegrity
+	toColumn: uvwMerchants.MerchantId
+
+relationship 'ac040065-348a-46f4-a603-c90514dea0b4'
+	fromColumn: uvwSettlements.OperatorId
+	relyOnReferentialIntegrity
+	toColumn: uvwOperators.OperatorId
+
+relationship '498a7f4e-17d5-4e43-91aa-dca4b6059504'
+	fromColumn: uvwTransactions.OperatorId
+	relyOnReferentialIntegrity
+	toColumn: uvwOperators.OperatorId
+

@@ -1,0 +1,39 @@
+{
+  "id": 0,
+  "layoutOptimization": 0,
+  "publicCustomVisuals": [
+    "BBED0A4D4D8D44CE93CF2DAFADEE466C",
+    "Timeline1447991079100"
+  ],
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY22SU11",
+            "path": "BaseThemes/CY22SU11.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    },
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "TSBI_-_Technological_Strategy_018563355976931595.json",
+            "path": "TSBI_-_Technological_Strategy_018563355976931595.json",
+            "type": 201
+          }
+        ],
+        "name": "RegisteredResources",
+        "type": 1
+      }
+    }
+  ],
+  "theme": "TSBI_-_Technological_Strategy_018563355976931595.json"
+}
