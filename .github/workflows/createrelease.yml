@@ -21,9 +21,9 @@ jobs:
         with:
           lfs: 'true'
 
-      - name: Get the version
-        id: get_version
-        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
+      #- name: Get the version
+      #  id: get_version
+      #  run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
 
       - name: Set ConnectionStringVar
         run: echo ::set-env name=ConnString::${{ matrix.customer }}ConnectionString
