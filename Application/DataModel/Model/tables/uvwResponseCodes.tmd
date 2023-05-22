@@ -1,0 +1,38 @@
+table uvwResponseCodes
+	lineageTag: d8a1789b-8fc8-486d-a461-fca96cd5ae21
+	ordinal: 4
+
+	partition 'uvwResponseCodes-fb1053db-d083-4b7d-b6f2-da617bef647d' = M
+		mode: DirectQuery
+		expression:=
+			let
+			    Source = Sql.Database(@DatabaseServer, @DatabaseName),
+			    dbo_uvwResponseCodes = Source{[Schema="dbo",Item="uvwResponseCodes"]}[Data]
+			in
+			    dbo_uvwResponseCodes
+
+	column ResponseCode
+		dataType: String
+		isDataTypeInferred: false
+		lineageTag: c827e234-1d5d-4767-bbeb-2da20ae2738f
+		sourceColumn: ResponseCode
+		sourceProviderType: varchar(4)
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: String
+		isDataTypeInferred: false
+		isNullable: false
+		lineageTag: f5950e7d-b2c9-4ed8-a4b8-5b69648e12eb
+		sourceColumn: Description
+		sourceProviderType: nvarchar(max)
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+	annotation PBI_ResultType = Exception
+
+	annotation PBI_NavigationStepName = Navigation
+

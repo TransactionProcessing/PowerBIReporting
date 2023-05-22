@@ -1,0 +1,54 @@
+culture 'en-US'
+	linguisticMetadata:
+		content:=
+			{
+			  "Version": "2.0.0",
+			  "Language": "en-US",
+			  "DynamicImprovement": "HighConfidence",
+			  "Entities": {
+			    "measurestable.yesterdaystransactioncounttonow": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MeasuresTable",
+			          "ConceptualProperty": "YesterdaysTransactionCountToNow"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Yesterday": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "measurestable.todaystransactioncount": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MeasuresTable",
+			          "ConceptualProperty": "TodaysTransactionCount"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Today": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    }
+			  }
+			}
+		contentType: Json
+

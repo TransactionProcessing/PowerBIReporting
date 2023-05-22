@@ -1,0 +1,39 @@
+table uvwOperators
+	lineageTag: e9925d3d-5e4e-4726-95d4-3698a3b11dd5
+	ordinal: 2
+
+	partition 'uvwOperators-0bfb7903-142c-47f9-b114-67deb711e3e2' = M
+		mode: DirectQuery
+		expression:=
+			let
+			    Source = Sql.Database(@DatabaseServer, @DatabaseName),
+			    dbo_uvwOperators = Source{[Schema="dbo",Item="uvwOperators"]}[Data]
+			in
+			    dbo_uvwOperators
+
+	column OperatorId
+		dataType: String
+		isDataTypeInferred: false
+		isNullable: false
+		lineageTag: 47075d0b-a8af-4c7a-919a-fb57d6397d8d
+		sourceColumn: OperatorId
+		sourceProviderType: uniqueidentifier
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+	column OperatorName
+		dataType: String
+		isDataTypeInferred: false
+		isNullable: false
+		lineageTag: 8214a133-1515-47a3-a07c-3da5e7aeb2cb
+		sourceColumn: OperatorName
+		sourceProviderType: nvarchar(max)
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+	annotation PBI_ResultType = Exception
+
+	annotation PBI_NavigationStepName = Navigation
+
