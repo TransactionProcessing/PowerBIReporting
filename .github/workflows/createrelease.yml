@@ -10,12 +10,14 @@ jobs:
     strategy:
       matrix:
         customer: ['TestEnv', 'DemoEstate']
+        connstring: ['TestEnvConnectionString', 'DemoEstateConnectionString']
       fail-fast: true
       max-parallel: 1  
     container:
       image: ghcr.io/pbi-tools/pbi-tools-core:latest
     environment:
       name: ${{ matrix.customer }}
+      connstringname: ${{ matrix.customer }}ConnectionString
     steps:
       - uses: actions/checkout@v3
         with:
@@ -24,12 +26,7 @@ jobs:
       #- name: Get the version
       #  id: get_version
       #  run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
-
-      - name: Set ConnectionStringVar
-        run: echo ::set-env name=ConnString::${{ matrix.customer }}ConnectionString
-
-      - name: Test
-        run: echo $ConnString     
+    
       #- name: Install SQL Tools
       #  uses: potatoqualitee/mssqlsuite@v1.7
       #  with:
