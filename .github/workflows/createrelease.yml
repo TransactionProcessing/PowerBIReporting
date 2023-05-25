@@ -27,8 +27,8 @@ jobs:
     - name: Create the release zip
       run: >-
         octo pack
-        --outFolder /home/runner/work/Application
-        --basePath /home/runner/work/Application
+        --outFolder /home/runner/work/PowerBIReporting/Application
+        --basePath /home/runner/work/PowerBIReporting/Application
         --id PowerBIApplication
         --version ${{ steps.get_version.outputs.VERSION }}
         --format zip
