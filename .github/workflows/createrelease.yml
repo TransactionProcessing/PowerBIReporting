@@ -40,7 +40,7 @@ jobs:
         octo push
         --server ${{ secrets.OCTOPUS_URL }}
         --apiKey ${{ secrets.OCTOPUS_APIKEY }}
-        --package /home/runner/work/Application//PowerBIApplication.${{ steps.get_version.outputs.VERSION }}.zip
+        --package /home/runner/work/PowerBIReporting/Application/PowerBIApplication.${{ steps.get_version.outputs.VERSION }}.zip
         --overwrite-mode IgnoreIfExists
 
     #- name: Get Release
