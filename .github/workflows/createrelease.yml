@@ -5,35 +5,67 @@ on:
     types: [published]
 
 jobs:
-  deployment:
+  buildrelease:
+    name: "Build Staging Release"
+
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        customer: ['TestEnv', 'DemoEstate']
-        connstring: ['TestEnvConnectionString', 'DemoEstateConnectionString']
-      fail-fast: true
-      max-parallel: 1  
-    container:
-      image: ghcr.io/pbi-tools/pbi-tools-core:latest
-    environment:
-      name: ${{ matrix.customer }}
-      connstringname: ${{ matrix.customer }}ConnectionString
+
     steps:
-      - uses: actions/checkout@v3
-        with:
-          lfs: 'true'
+    - uses: actions/checkout@2.3.4
+  
+    - name: Get the version
+      id: get_version
+      run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
 
-      #- name: Get the version
-      #  id: get_version
-      #  run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
-    
-      #- name: Install SQL Tools
-      #  uses: potatoqualitee/mssqlsuite@v1.7
-      #  with:
-      #    install: sqlclient
+    - name: Create the release zip
+      run: |
+        octo pack
+        --outFolder /home/runner/work/Application
+        --basePath /home/runner/work/Application
+        --id PowerBIApplication
+        --version ${{ steps.get_version.outputs.VERSION }}
+        --format zip
+        --verbose
+        --logLevel=verbose
 
-      #- name: Deploy view changes
-      #  run: pwsh \DataModel\RUNSQL.ps1 -ConnectionString $STEPVAR -SQLFilePath "DataModel\"           
+    - name: Push Package to Octopus
+      run: |
+        octo push
+        --server ${{ secrets.OCTOPUS_URL }}
+        --apiKey ${{ secrets.OCTOPUS_APIKEY }}
+        --package /home/runner/work/Application//PowerBIApplication.${{ steps.get_version.outputs.VERSION }}.zip
+        --overwrite-mode IgnoreIfExists
+
+    #- name: Get Release
+    #  if: ${{ github.event.release.prerelease == false }} 
+    #  id: getrelease
+    #  uses: octokit/request-action@v2.0.17
+    #  with:
+    #      route: GET /repos/TransactionProcessing/CallbackHandler/releases/tags/${{ steps.get_version.outputs.VERSION }}
+    #  env:
+    #      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    #- name: Build Release Notes
+    #  if: ${{ github.event.release.prerelease == false }} 
+    #  id: buildreleasenotes
+    #  uses: gr2m/get-json-paths-action@v1.x
+    #  with:
+    #      json: ${{ steps.getrelease.outputs.data }}
+    #      releasenote: "body"
+
+    #- name: Create & Deploy Release in Octopus
+    #  if: ${{ github.event.release.prerelease == false }} 
+    #  run: |
+    #    octo  create-release
+    #    --server ${{ secrets.OCTOPUS_URL }}
+    #    --apiKey ${{ secrets.OCTOPUS_APIKEY }}
+    #    --project "PowerBIReporting"
+    #    --version ${{ steps.get_version.outputs.VERSION }}
+    #    --channel Default
+    #    --deployTo Staging
+    #    --waitfordeployment
+    #    --deploymenttimeout 00:05:00
+    #    --releasenotes "${{ steps.buildreleasenotes.outputs.releasenote }}" 
                 
     
     
