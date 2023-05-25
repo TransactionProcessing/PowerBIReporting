@@ -19,7 +19,7 @@ jobs:
     
     - name: List Files
       run: |
-        cd /home/runner/work/PowerBIReporting
+        cd /home/runner/work/PowerBIReporting/PowerBIReporting
         ls
     
     #- name: Install Octopus CLI
