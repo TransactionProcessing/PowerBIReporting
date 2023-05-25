@@ -1,0 +1,134 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Projects\\TransactionProcessing\\PowerBIReporting\\ReleaseProcess\\PowerBIReleaseProcess\\PowerBIReleaseTool.csproj": {}
+  },
+  "projects": {
+    "C:\\Projects\\TransactionProcessing\\PowerBIReporting\\ReleaseProcess\\PowerBIReleaseProcess\\PowerBIReleaseTool.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Projects\\TransactionProcessing\\PowerBIReporting\\ReleaseProcess\\PowerBIReleaseProcess\\PowerBIReleaseTool.csproj",
+        "projectName": "PowerBIReleaseTool",
+        "projectPath": "C:\\Projects\\TransactionProcessing\\PowerBIReporting\\ReleaseProcess\\PowerBIReleaseProcess\\PowerBIReleaseTool.csproj",
+        "packagesPath": "C:\\Users\\stuar\\.nuget\\packages\\",
+        "outputPath": "C:\\Projects\\TransactionProcessing\\PowerBIReporting\\ReleaseProcess\\PowerBIReleaseProcess\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\stuar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0-windows"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://www.myget.org/F/tahoe-eposity/auth/024ff48c-540a-4059-8712-d54f7b0d6a31/api/v3/index.json": {},
+          "https://www.myget.org/F/transactionprocessing/api/v3/index.json": {},
+          "https://www.myget.org/F/vme-intellistore-beta/auth/024ff48c-540a-4059-8712-d54f7b0d6a31/api/v3/index.json": {},
+          "https://www.myget.org/F/vme-intellistore/auth/024ff48c-540a-4059-8712-d54f7b0d6a31/api/v3/index.json": {},
+          "https://www.myget.org/F/vme-shared/auth/024ff48c-540a-4059-8712-d54f7b0d6a31/api/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0-windows7.0": {
+            "targetAlias": "net5.0-windows",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0-windows7.0": {
+          "targetAlias": "net5.0-windows",
+          "dependencies": {
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration.FileExtensions": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[5.0.2, )"
+            },
+            "Microsoft.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.Identity.Client": {
+              "target": "Package",
+              "version": "[4.21.0, )"
+            },
+            "Microsoft.PowerBI.Api": {
+              "target": "Package",
+              "version": "[3.21.0, )"
+            },
+            "NLog": {
+              "target": "Package",
+              "version": "[4.7.14, )"
+            },
+            "NLog.Web.AspNetCore": {
+              "target": "Package",
+              "version": "[4.14.0, )"
+            },
+            "RestSharp": {
+              "target": "Package",
+              "version": "[106.11.7, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.3, )"
+            },
+            "System.IO.Abstractions": {
+              "target": "Package",
+              "version": "[13.2.29, )"
+            },
+            "Vme": {
+              "target": "Package",
+              "version": "[2.0.2, )"
+            },
+            "Vme.Logging": {
+              "target": "Package",
+              "version": "[2.0.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WindowsForms": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400-preview.23225.8\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
