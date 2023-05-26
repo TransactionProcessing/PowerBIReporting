@@ -45,36 +45,53 @@ jobs:
         --package /home/runner/work/PowerBIReporting/PowerBIReporting/Application/PowerBIApplication.${{ steps.get_version.outputs.VERSION }}.zip
         --overwrite-mode IgnoreIfExists
 
-    #- name: Get Release
-    #  if: ${{ github.event.release.prerelease == false }} 
-    #  id: getrelease
-    #  uses: octokit/request-action@v2.0.17
-    #  with:
-    #      route: GET /repos/TransactionProcessing/CallbackHandler/releases/tags/${{ steps.get_version.outputs.VERSION }}
-    #  env:
-    #      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Get Release
+      if: ${{ github.event.release.prerelease == false }} 
+      id: getrelease
+      uses: octokit/request-action@v2.0.17
+      with:
+          route: GET /repos/TransactionProcessing/CallbackHandler/releases/tags/${{ steps.get_version.outputs.VERSION }}
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    #- name: Build Release Notes
-    #  if: ${{ github.event.release.prerelease == false }} 
-    #  id: buildreleasenotes
-    #  uses: gr2m/get-json-paths-action@v1.x
-    #  with:
-    #      json: ${{ steps.getrelease.outputs.data }}
-    #      releasenote: "body"
+    - name: Build Release Notes
+      if: ${{ github.event.release.prerelease == false }} 
+      id: buildreleasenotes
+      uses: gr2m/get-json-paths-action@v1.x
+      with:
+          json: ${{ steps.getrelease.outputs.data }}
+          releasenote: "body"
 
-    #- name: Create & Deploy Release in Octopus
-    #  if: ${{ github.event.release.prerelease == false }} 
-    #  run: >-
-    #    octo  create-release
-    #    --server ${{ secrets.OCTOPUS_URL }}
-    #    --apiKey ${{ secrets.OCTOPUS_APIKEY }}
-    #    --project "PowerBIReporting"
-    #    --version ${{ steps.get_version.outputs.VERSION }}
-    #    --channel Default
-    #    --deployTo Staging
-    #    --waitfordeployment
-    #    --deploymenttimeout 00:05:00
-    #    --releasenotes "${{ steps.buildreleasenotes.outputs.releasenote }}" 
+    - name: Create & Deploy Release in Octopus for PBI Tools Tennant
+      if: ${{ github.event.release.prerelease == false }} 
+      run: >-
+        octo  create-release
+        --server ${{ secrets.OCTOPUS_URL }}
+        --apiKey ${{ secrets.OCTOPUS_APIKEY }}
+        --project "Reporting"
+        --version ${{ steps.get_version.outputs.VERSION }}
+        --channel Default
+        --deployTo Staging
+        --tenant PBITools
+        --waitfordeployment
+        --deploymenttimeout 00:05:00
+        --releasenotes "${{ steps.buildreleasenotes.outputs.releasenote }}" 
+   
+    - name: Create & Deploy Release in Octopus for Demo Estate Tennant
+      if: ${{ github.event.release.prerelease == false }} 
+      run: >-
+        octo  create-release
+        --server ${{ secrets.OCTOPUS_URL }}
+        --apiKey ${{ secrets.OCTOPUS_APIKEY }}
+        --project "Reporting"
+        --version ${{ steps.get_version.outputs.VERSION }}
+        --channel Default
+        --deployTo Staging
+        --tenant Demo Estate
+        --waitfordeployment
+        --deploymenttimeout 00:05:00
+        --releasenotes "${{ steps.buildreleasenotes.outputs.releasenote }}"  
+
                 
     
     
