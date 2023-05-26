@@ -62,10 +62,20 @@ jobs:
           json: ${{ steps.getrelease.outputs.data }}
           releasenote: "body"
 
-    - name: Create & Deploy Release in Octopus for PBI Tools Tennant
+    - name: Create Release in Octopus
       if: ${{ github.event.release.prerelease == false }} 
       run: >-
         octo  create-release
+        --server ${{ secrets.OCTOPUS_URL }}
+        --apiKey ${{ secrets.OCTOPUS_APIKEY }}
+        --project "Reporting"
+        --version ${{ steps.get_version.outputs.VERSION }}
+        --releasenotes "${{ steps.buildreleasenotes.outputs.releasenote }}"  
+
+    - name: Deploy Release in Octopus for PBI Tools Tennant
+      if: ${{ github.event.release.prerelease == false }} 
+      run: >-
+        octo  deploy-release
         --server ${{ secrets.OCTOPUS_URL }}
         --apiKey ${{ secrets.OCTOPUS_APIKEY }}
         --project "Reporting"
@@ -76,11 +86,11 @@ jobs:
         --waitfordeployment
         --deploymenttimeout 00:05:00
         --releasenotes "${{ steps.buildreleasenotes.outputs.releasenote }}" 
-   
-    - name: Create & Deploy Release in Octopus for Demo Estate Tennant
+        
+    - name: Deploy Release in Octopus for PBI Tools Tennant
       if: ${{ github.event.release.prerelease == false }} 
       run: >-
-        octo  create-release
+        octo  deploy-release
         --server ${{ secrets.OCTOPUS_URL }}
         --apiKey ${{ secrets.OCTOPUS_APIKEY }}
         --project "Reporting"
@@ -90,7 +100,9 @@ jobs:
         --tenant "DemoEstate"
         --waitfordeployment
         --deploymenttimeout 00:05:00
-        --releasenotes "${{ steps.buildreleasenotes.outputs.releasenote }}"  
+        --releasenotes "${{ steps.buildreleasenotes.outputs.releasenote }}"         
+   
+    
 
                 
     
