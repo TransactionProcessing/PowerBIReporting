@@ -87,7 +87,7 @@ jobs:
         --version ${{ steps.get_version.outputs.VERSION }}
         --channel Default
         --deployTo Staging
-        --tenant "Demo Estate"
+        --tenant "DemoEstate"
         --waitfordeployment
         --deploymenttimeout 00:05:00
         --releasenotes "${{ steps.buildreleasenotes.outputs.releasenote }}"  
