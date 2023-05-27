@@ -87,7 +87,7 @@ jobs:
         --deploymenttimeout 00:05:00
         --releasenotes "${{ steps.buildreleasenotes.outputs.releasenote }}" 
         
-    - name: Deploy Release in Octopus for PBI Tools Tennant
+    - name: Deploy Release in Octopus for Demo Estate Tennant
       if: ${{ github.event.release.prerelease == false }} 
       run: >-
         octo  deploy-release
