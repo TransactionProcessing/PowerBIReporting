@@ -351,3 +351,6 @@ MigrationBackup/
 
 /ReleaseProcess/PowerBIRelease/appsettings.json
 /ReleaseProcess/PowerBIRelease/appsettings.test.json
+/ReleaseProcess/.vs/PowerBIReleaseProcess/v17/TestStore/0/000.testlog
+/ReleaseProcess/PowerBIRelease/obj/Debug/net7.0/PowerBIRelease.csproj.AssemblyReference.cache
+/ReleaseProcess/.vs/PowerBIReleaseProcess/DesignTimeBuild/.dtbcache.v2
